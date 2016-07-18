@@ -46,4 +46,3 @@ raise "Can't find agree button" if button.nil?
 page = form.submit(button) 
 page = agent.get(url) 
  
-scrape_and_follow_next_link(page)
