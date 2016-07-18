@@ -14,7 +14,7 @@ def scrape_page(page)
     }
     record["comment_url"] = "https://sde.brisbane.qld.gov.au/services/startDASubmission.do?direct=true&daNumber=" + CGI.escape(record["council_reference"]) + "&sdeprop=" + CGI.escape(record["address"])
     #p record
-    if (YourNeighbourhood.select("* from data where `council_reference`='#{record['council_reference']}'").empty? rescue true)
+    if ("* from data where `council_reference`='#{record['council_reference']}'").empty? rescue true)
       YourNeighbourhood.save_sqlite(['council_reference'], record)
     else
       puts "Skipping already saved record " + record['council_reference']
@@ -42,3 +42,16 @@ def scrape_and_follow_next_link(page)
 end
 
 url = "https://pdonline.brisbane.qld.gov.au/MasterViewUI/Modules/ApplicationMaster/default.aspx?page=found&1=thismonth&6=F"
+
+
+page = agent.get(url) 
+ 
+
+form = page.forms.first 
+button = form.button_with(value: "I Agree") 
+raise "Can't find agree button" if button.nil? 
+page = form.submit(button) 
+page = agent.get(url) 
+ 
+ 
+scrape_and_follow_next_link(page) 
