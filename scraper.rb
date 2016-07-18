@@ -45,6 +45,6 @@ button = form.button_with(value: "I Agree")
 raise "Can't find agree button" if button.nil? 
 page = form.submit(button) 
 page = agent.get(url) 
-
+end
 scrape_and_follow_next_link(page)
 end
