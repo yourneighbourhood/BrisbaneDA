@@ -47,4 +47,4 @@ page = form.submit(button)
 page = agent.get(url) 
 end
 scrape_and_follow_next_link(page)
-end
+end-of-input
