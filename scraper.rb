@@ -14,10 +14,7 @@ def scrape_page(page)
     }
     record["comment_url"] = "https://sde.brisbane.qld.gov.au/services/startDASubmission.do?direct=true&daNumber=" + CGI.escape(record["council_reference"]) + "&sdeprop=" + CGI.escape(record["address"])
     #p record
-    ("* from data where `council_reference`='#{record['council_reference']}'").empty? rescue true)
-     save_sqlite(['council_reference'], record)
-    else
-      puts "Skipping already saved record " + record['council_reference']
+         save_sqlite(['council_reference'], record)
     end
   end
 end
