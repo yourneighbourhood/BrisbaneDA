@@ -1,4 +1,3 @@
-require 'YourNeighbourhood' 
 # Scraping from Masterview 2.0
 
 def scrape_page(page)
