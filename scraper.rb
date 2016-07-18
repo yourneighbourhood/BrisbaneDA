@@ -13,11 +13,7 @@ def scrape_page(page)
       "date_scraped" => Date.today.to_s
     }
     record["comment_url"] = "https://sde.brisbane.qld.gov.au/services/startDASubmission.do?direct=true&daNumber=" + CGI.escape(record["council_reference"]) + "&sdeprop=" + CGI.escape(record["address"])
-    #p record
-         save_sqlite(['council_reference'], record)
     end
-  end
-end
 
 def scrape_and_follow_next_link(page)
   scrape_page(page)
