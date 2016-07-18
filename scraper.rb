@@ -48,3 +48,5 @@ page = agent.get(url)
 end
 scrape_and_follow_next_link(page)
 end-of-input
+end-of-input
+^
