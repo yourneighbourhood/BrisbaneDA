@@ -29,7 +29,7 @@ def scrape_page(page)
  url = "http://pdonline.brisbane.qld.gov.au/MasterView/modules/applicationmaster/default.aspx?page=found&1=thismonth&6=F" 
  
  
-agent = Mechanize.new 
+
  
  
 # Read in a page 
