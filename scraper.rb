@@ -1,6 +1,10 @@
 # Adapted from planningalerts.org.au to return data
 # back to Jan 01, 2007
 
+require 'scraperwiki'
+require 'mechanize'
+require 'date'
+
 def scrape_page(page)
   page.at("table#ctl00_cphContent_ctl01_ctl00_RadGrid1_ctl00 tbody").search("tr").each do |tr|
     begin
